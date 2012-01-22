@@ -1,0 +1,6 @@
+See file "License" for licensing information applicable to this project.
+
+This project implements a basic ICS application.  The project is specifically
+designed for illustration purposes only.  In particular, the project and the
+application code specifically leave out elements typically needed to create a
+robust application.  In no way does it exemplify "best practices".
