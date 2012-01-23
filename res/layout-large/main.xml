@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/users"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <fragment
+            android:id="@+id/users_fragment"
+            android:name="com.samsung.android.eg.moveme.ItemList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:tag="users" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/faves"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <fragment
+            android:id="@+id/faves_fragment"
+            android:name="com.samsung.android.eg.moveme.ItemList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:tag="faves" />
+    </FrameLayout>
+
+</LinearLayout>
