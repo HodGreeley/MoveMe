@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-    
-    <fragment
-        android:name="com.samsung.android.eg.moveme.Album"
-        android:id="@+id/user_fragment"
-        android:tag="users"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/users"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-</LinearLayout>
+    <fragment
+        android:id="@+id/users_fragment"
+        android:name="com.samsung.android.eg.moveme.ItemList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:tag="users" />
+
+</FrameLayout>

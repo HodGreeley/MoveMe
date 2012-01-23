@@ -1,6 +1,5 @@
 package com.samsung.android.eg.moveme;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,39 +9,41 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 
+import com.samsung.android.eg.moveme.Data.AlbumItem;
 import com.samsung.android.eg.utils.ImageAdapter;
 import com.samsung.android.eg.utils.Ui;
 
-public class Album extends Fragment {
-    @Override
-    public void onAttach(Activity activity) {
-    	super.onAttach(activity);
-            
-    	ui = Ui.getInstance();
-    }
-	
+public class Album extends Fragment implements ItemInfo {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		
+    	ui = Ui.getInstance();
+    	
 		View view = inflater.inflate(R.layout.album, container, false);
 
 		gallery = (Gallery)view.findViewById(R.id.gallery);
 	    
-	    gallery.setAdapter(new ImageAdapter(getActivity(), Data.getData(getTag())));
+		if (albumItems == null) setItems(Data.getData(getTag()));
+
+	    gallery.setAdapter(new ImageAdapter(getActivity(), albumItems));
 		
 	    gallery.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	        	listener.onSelected(position);
+	    		ui.onItemSelected(position, getTag());
 	        }
 	    });
-
-	    ui.setUserFragment(this, R.id.user_fragment);
 	    
+	    ui.registerFragment(this);
+
         return view;
 	}
 
+	public void setItems(AlbumItem[] items) {
+		albumItems = items;
+	}
+
 	private Ui ui;
-	private Ui.SelectionListener listener;
 	private Gallery gallery;
+	private AlbumItem[] albumItems = null;
 }

@@ -9,18 +9,29 @@ import com.samsung.android.eg.moveme.Data.AlbumItem;
 import com.samsung.android.eg.utils.ItemListAdapter;
 import com.samsung.android.eg.utils.Ui;
 
-public class ItemList extends ListFragment {
+public class ItemList extends ListFragment implements ItemInfo {
     @Override
     public void onAttach(Activity activity) {
     	super.onAttach(activity);
 
-    	setListAdapter(new ItemListAdapter<AlbumItem>(activity, R.layout.list_item, Data.getData(getTag())));		
+    	ui = Ui.getInstance();
+    	
+    	if (albumItems == null) setItems(Data.getData(getTag()));		
+    	
+    	setListAdapter(new ItemListAdapter<AlbumItem>(getActivity(), R.layout.list_item, albumItems));
+    	
+	    ui.registerFragment(this);
     }
 
 	@Override
     public void onListItemClick(ListView l, View v, int pos, long id) {
-    	listener.onSelected(pos);
+		ui.onItemSelected(pos, getTag());
     }
 
-    private Ui.SelectionListener listener;
+	public void setItems(AlbumItem[] items) {
+		albumItems = items;
+	}
+
+	private Ui ui;
+	private AlbumItem[] albumItems = null;
 }

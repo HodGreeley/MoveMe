@@ -46,14 +46,24 @@ public class Data {
 	}
 	
 	private static AlbumItem[] users = {
-		new AlbumItem(R.drawable.ic_launcher, "Hod"),
-		new AlbumItem(R.drawable.ic_launcher, "Melbot"),
-		new AlbumItem(R.drawable.ic_launcher, "Juan")
+		new AlbumItem(R.drawable.lab, "Hod"),
+		new AlbumItem(R.drawable.android3d, "Melbot"),
+		new AlbumItem(R.drawable.android_aw, "Juan")
 	};
 	
 	private static AlbumItem[][] faves = { 
-		{ new AlbumItem(R.drawable.ic_launcher, "Test 1"), new AlbumItem(R.drawable.ic_launcher, "Test 2") },
-		{ new AlbumItem(R.drawable.ic_launcher, "Test 1"), new AlbumItem(R.drawable.ic_launcher, "Test 2") },
-		{ new AlbumItem(R.drawable.ic_launcher, "Test 1"), new AlbumItem(R.drawable.ic_launcher, "Test 2") },		
+		{
+			new AlbumItem(R.drawable.lab, "Test 1.1"),
+			new AlbumItem(R.drawable.android_aw, "Test 1.2"),
+			new AlbumItem(R.drawable.android3d, "Test 1.3"),
+		},
+		{
+			new AlbumItem(R.drawable.ic_launcher, "Test 2.1"),
+			new AlbumItem(R.drawable.ic_launcher, "Test 2.2"),
+		},
+		{
+			new AlbumItem(R.drawable.ic_launcher, "Test 3.1"),
+			new AlbumItem(R.drawable.ic_launcher, "Test 3.2"),
+		},		
 	};
 }

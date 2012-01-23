@@ -14,8 +14,11 @@ public class MoveMe extends Activity {
 		super.onCreate(savedState);
 
 		ui = Ui.getInstance();
-        setContentView(R.layout.main);
-        enableDropDown();
+		ui.setFragmentManager(getFragmentManager());
+
+		enableDropDown();
+
+		setContentView(R.layout.main);
 	}
 
     private void enableDropDown() {
@@ -23,8 +26,8 @@ public class MoveMe extends Activity {
 
 		ActionBar.OnNavigationListener listener = new ActionBar.OnNavigationListener() {
 			@Override
-			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-				ui.setMode(getFragmentManager(), itemPosition);
+			public boolean onNavigationItemSelected(int position, long id) {
+				ui.setMode(position);
 				
 			    return true;
 			}
