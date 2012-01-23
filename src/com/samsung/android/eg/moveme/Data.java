@@ -24,6 +24,19 @@ public class Data {
 		}
 	}
 	
+	public static AlbumItem[] getData(String id) {
+		AlbumItem[] data = null;
+		
+		if (id.compareTo("users") == 0) {
+			data = users;
+		}
+		else {
+			data = faves[0];
+		}
+		
+		return data;
+	}
+	
 	public static AlbumItem[] getUsers() {
 		return users;
 	}

@@ -16,9 +16,9 @@ import com.samsung.android.eg.utils.Ui;
 public class Album extends Fragment {
     @Override
     public void onAttach(Activity activity) {
-            super.onAttach(activity);
+    	super.onAttach(activity);
             
-            listener = (Ui.SelectionListener)activity;
+    	ui = Ui.getInstance();
     }
 	
 	@Override
@@ -29,19 +29,20 @@ public class Album extends Fragment {
 
 		gallery = (Gallery)view.findViewById(R.id.gallery);
 	    
+	    gallery.setAdapter(new ImageAdapter(getActivity(), Data.getData(getTag())));
+		
 	    gallery.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 	        	listener.onSelected(position);
 	        }
 	    });
 
+	    ui.setUserFragment(this, R.id.user_fragment);
+	    
         return view;
 	}
 
-	public void setItems(Data.AlbumItem[] items) {
-	    gallery.setAdapter(new ImageAdapter(getActivity(), items));
-	}
-
+	private Ui ui;
 	private Ui.SelectionListener listener;
 	private Gallery gallery;
 }
