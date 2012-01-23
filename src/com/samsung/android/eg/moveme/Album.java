@@ -34,10 +34,22 @@ public class Album extends Fragment implements ItemInfo {
 	        }
 	    });
 	    
-	    ui.registerFragment(this);
+    	setRetainInstance(false);
 
         return view;
 	}
+
+    @Override
+    public void onStart() {
+    	super.onStart();
+    	ui.registerFragment(this);
+    }
+
+    @Override
+    public void onStop() {
+    	super.onStop();
+    	ui.unregisterFragment(this);
+    }
 
 	public void setItems(AlbumItem[] items) {
 		albumItems = items;

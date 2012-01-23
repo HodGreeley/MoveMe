@@ -11,7 +11,8 @@ import com.samsung.android.eg.utils.Ui;
 public class MoveMe extends Activity {
 	@Override
     public void onCreate(Bundle savedState) {
-		super.onCreate(savedState);
+		//super.onCreate(savedState);
+		super.onCreate(null);
 
 		ui = Ui.getInstance();
 		ui.setFragmentManager(getFragmentManager());

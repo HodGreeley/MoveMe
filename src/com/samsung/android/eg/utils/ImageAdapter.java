@@ -45,7 +45,7 @@ public class ImageAdapter extends BaseAdapter {
         ImageView imageView = new ImageView(context);
 
         imageView.setImageResource(albumItems[position].getId());
-        imageView.setLayoutParams(new Gallery.LayoutParams(150, 100));
+        imageView.setLayoutParams(new Gallery.LayoutParams(300, 200));
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setBackgroundResource(itemBackground);
 

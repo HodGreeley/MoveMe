@@ -20,9 +20,21 @@ public class ItemList extends ListFragment implements ItemInfo {
     	
     	setListAdapter(new ItemListAdapter<AlbumItem>(getActivity(), R.layout.list_item, albumItems));
     	
-	    ui.registerFragment(this);
+    	setRetainInstance(false);
     }
 
+    @Override
+    public void onStart() {
+    	super.onStart();
+    	ui.registerFragment(this);
+    }
+
+    @Override
+    public void onStop() {
+    	super.onStop();
+    	ui.unregisterFragment(this);
+    }
+    
 	@Override
     public void onListItemClick(ListView l, View v, int pos, long id) {
 		ui.onItemSelected(pos, getTag());

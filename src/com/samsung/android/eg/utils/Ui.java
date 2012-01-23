@@ -52,10 +52,19 @@ public class Ui {
 
 	public void registerFragment(Fragment fragment) {
 		if (fragment.getTag().compareTo("users") == 0) {
-			hasUsers = fragment.isInLayout();
+			hasUsers = (fragment.isInLayout() || fragment.isVisible());
 		}
 		else {
-			hasFaves = fragment.isInLayout();
+			hasFaves = (fragment.isInLayout() || fragment.isVisible());
+		}
+	}
+	
+	public void unregisterFragment(Fragment fragment) {
+		if (fragment.getTag().compareTo("users") == 0) {
+			hasUsers = false;
+		}
+		else {
+			hasFaves = false;
 		}
 	}
 	
